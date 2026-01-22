@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,7 +91,6 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-          
         }
 
         .hero-slide {
@@ -103,8 +101,17 @@
             height: 100%;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
-            background-size: cover;
-            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         .hero-slide.active {
@@ -123,22 +130,17 @@
 
         .hero-content {
             text-align: center;
-            z-index: 6;
+            z-index: 2;
             animation: fadeInUp 1s ease-out;
-             position:absolute;
-    bottom:45%;
-    left:50%;
-    transform:translateX(-50%);
         }
 
         .hero h1 {
-            font-size: 70px;
-            margin-bottom: 10px;
+            font-size: 80px;
+            margin-bottom: 20px;
             letter-spacing: 5px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            opacity: 55% ;
         }
 
         .hero p {
@@ -165,26 +167,25 @@
 
         /* Biography Section */
         .biography-content {
-            display: flex;
+            display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: flex-start;
+            gap: 60px;
+            align-items: center;
         }
 
         .biography-image {
-            width: 47%;
-            height: 360px;
+            width: 100%;
+            height: 500px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 5px;
+            border-radius: 10px;
             overflow: hidden;
             position: relative;
             background-size: cover;
             background-position: center;
-            margin-right: 20px;
         }
 
         .biography-image::before {
-            content: '';
+            content: '📸';
             position: absolute;
             top: 50%;
             left: 50%;
@@ -194,12 +195,10 @@
         }
 
         .biography-text p {
-            font-size: 20px;
+            font-size: 18px;
             line-height: 1.8;
             color: #ccc;
-            margin-bottom: 10px;
-            margin-left: 0;
-
+            margin-bottom: 20px;
         }
 
         /* Parcours Section */
@@ -461,7 +460,6 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -471,22 +469,35 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 50px;
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 16px;
             }
 
             .biography-content {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+
+            .biography-image {
+                width: 100%;
+                height: 400px;
+                margin-right: 0;
+                margin-bottom: 30px;
             }
 
             nav {
-                padding: 20px;
-                flex-direction: column;
-                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 18px;
             }
 
             .nav-links {
-                gap: 10px;
-                font-size: 10px;
+                gap: 8px;
+                font-size: 9px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
@@ -496,7 +507,7 @@
             }
 
             h2 {
-                font-size: 36px;
+                font-size: 32px;
             }
 
             .films-grid,
@@ -511,10 +522,13 @@
             .parcours-item {
                 padding-left: 30px;
             }
+
+            .biography-text p {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
-
 <body>
     <!-- Navigation -->
     <nav>
@@ -535,37 +549,37 @@
     <section id="home" class="hero">
         <!-- Slider d'images -->
         <div class="hero-slider">
-            <div class="hero-slide active" style="display:flex;  justify-content:center; align-items:center; background-color: grey; ">
-                <img src="image11.jpeg" width="600px" height="760px" style=" object-fit: cover; background-color: rgba(128, 128, 128, 0.272);">
+            <div class="hero-slide active">
+                <img src="image11.jpeg" alt="Papa Djibril Diaw">
             </div>
             <div class="hero-slide">
-                <img src="image2.jpeg" width="1500px" height="950px"></div>
-            <div class="hero-slide">
-                  <img src="image3.jpeg" width="1500px"></div>
-            </div>
-            <div class="hero-slide" style="display:flex;  justify-content:center; align-items:center; background-color: grey; ">
-                  <img src="image9.jpeg" width="600px" height="760px" style=" object-fit: cover; background-color: rgba(128, 128, 128, 0.272);" ></div>
-            </div>
-               <div class="hero-slide" style="display:flex;  justify-content:center; align-items:center; background-color: rgba(128, 128, 128, 0.758); ">
-                  <img src="image8.jpeg" width="450px" height="900px" style=" object-fit: cover; background-color: rgba(128, 128, 128, 0.272); max-width: 100%;" ></div>
-            <div class="hero-slide" style=" height:100vh; display:flex;  align-items:center;">
-                <img src="image4.jpeg" style="width: 1500px; height: 1100px; object-fit: cover;" >
-            </div>
-            <div class="hero-slide" style="display:flex;  justify-content:center; align-items:center; background-color: rgba(0, 0, 0, 0); ">
-                  <img src="image5.jpeg" width="500px">
-                </div>
-            
-            <div class="hero-slide"  style="display:flex;  justify-content:center; align-items:center;"  >
-                  <img src="image7.jpeg" width="1900px"  style=" background-color: rgba(95, 62, 6, 0.642)"></div>
+                <img src="image2.jpeg" alt="Papa Djibril Diaw">
             </div>
             <div class="hero-slide">
-                  <img src="image6.jpeg" width="1400px"></div>
+                <img src="image3.jpeg" alt="Papa Djibril Diaw">
             </div>
-             
+            <div class="hero-slide">
+                <img src="image9.jpeg" alt="Papa Djibril Diaw">
+            </div>
+            <div class="hero-slide">
+                <img src="image8.jpeg" alt="Papa Djibril Diaw">
+            </div>
+            <div class="hero-slide">
+                <img src="image4.jpeg" alt="Papa Djibril Diaw">
+            </div>
+            <div class="hero-slide">
+                <img src="image5.jpeg" alt="Papa Djibril Diaw">
+            </div>
+            <div class="hero-slide">
+                <img src="image7.jpeg" alt="Papa Djibril Diaw">
+            </div>
+            <div class="hero-slide">
+                <img src="image6.jpeg" alt="Papa Djibril Diaw">
+            </div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 >Papa Djibril Diaw</h1>
+            <h1>NOM ACTEUR</h1>
             <p>Acteur • Comédien • Model</p>
         </div>
     </section>
@@ -575,13 +589,12 @@
         <h2>Biography</h2>
         <div class="biography-content">
             <div class="biography-image">
-                <img src="image10.jpeg" width="205px"  alt="">
+                <img src="image10.jpeg" alt="Papa Djibril Diaw">
             </div>
             <div class="biography-text">
-                <p>Je m’appelle Djibril Diaw et je vis à Dakar, au Sénégal. Je suis acteur et comédien, avec six années d’expérience dans le cinéma .</p>
-                <p>J’ai suivi plusieurs formations en ateliers d’acteurs, qui m’ont permis de renforcer mon jeu et d’approfondir ma compréhension du travail à l’image. Au fil des années, j’ai eu l’opportunité de jouer dans des séries et des films, notamment en tant qu’acteur principal.</p>
-                <p>je m’investis pleinement dans chaque rôle avec sérieux, discipline et engagement. Mon objectif est de raconter des histoires fortes, d’incarner des personnages authentiques et de collaborer avec des amoureux du cinéma qui partagent cette même vision artistique.
-Je reste ouvert à toute collaboration et à de nouveaux projets cinématographiques</p>
+                <p>Je m'appelle Djibril Diaw et je vis à Dakar, au Sénégal. Je suis acteur et comédien, avec six années d'expérience dans le cinéma.</p>
+                <p>J'ai suivi plusieurs formations en ateliers d'acteurs, qui m'ont permis de renforcer mon jeu et d'approfondir ma compréhension du travail à l'image. Au fil des années, j'ai eu l'opportunité de jouer dans des séries et des films, notamment en tant qu'acteur principal.</p>
+                <p>Je m'investis pleinement dans chaque rôle avec sérieux, discipline et engagement. Mon objectif est de raconter des histoires fortes, d'incarner des personnages authentiques et de collaborer avec des amoureux du cinéma qui partagent cette même vision artistique. Je reste ouvert à toute collaboration et à de nouveaux projets cinématographiques.</p>
             </div>
         </div>
     </section>
@@ -594,8 +607,7 @@ Je reste ouvert à toute collaboration et à de nouveaux projets cinématographi
                 <div class="parcours-year">2020 - 2023</div>
                 <div class="parcours-title">Conservatoire National d'Art Dramatique</div>
                 <div class="parcours-description">
-                    Formation intensive en art dramatique. Spécialisation en techniques de jeu pour le cinéma et le
-                    théâtre classique.
+                    Formation intensive en art dramatique. Spécialisation en techniques de jeu pour le cinéma et le théâtre classique.
                 </div>
             </div>
             <div class="parcours-item">
@@ -764,8 +776,7 @@ Je reste ouvert à toute collaboration et à de nouveaux projets cinématographi
         <div class="demo-container">
             <div class="demo-video">▶️</div>
             <div class="demo-description">
-                <p>Découvrez une compilation de mes meilleurs moments à l'écran. Cette bande démo présente un aperçu de
-                    mon travail dans différents registres : drame, comédie, action, et plus encore.</p>
+                <p>Découvrez une compilation de mes meilleurs moments à l'écran. Cette bande démo présente un aperçu de mon travail dans différents registres : drame, comédie, action, et plus encore.</p>
             </div>
         </div>
     </section>
@@ -776,13 +787,13 @@ Je reste ouvert à toute collaboration et à de nouveaux projets cinématographi
         <p style="color: #ccc; font-size: 18px;">Intéressé par une collaboration ? N'hésitez pas à me contacter.</p>
         <div class="contact-info">
             <div class="contact-item">
-                📧 Email: <a href="djibsonfdv@gmail.com">djibsonfdv@gmail.com</a>
+                📧 Email: <a href="mailto:contact@acteur.com">contact@acteur.com</a>
             </div>
             <div class="contact-item">
-                📱 Téléphone: +221 77 797 84 69
+                📱 Téléphone: +33 X XX XX XX XX
             </div>
             <div class="contact-item">
-                📍 Dakar, Senegal
+                📍 Paris, France
             </div>
         </div>
         <div class="social-links">
@@ -841,5 +852,4 @@ Je reste ouvert à toute collaboration et à de nouveaux projets cinématographi
         });
     </script>
 </body>
-
 </html>
