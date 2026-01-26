@@ -166,6 +166,8 @@
         }
 
         /* Biography Section */
+        
+        /* Biography Section */
         .biography-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -180,61 +182,42 @@
             border-radius: 10px;
             overflow: hidden;
             position: relative;
-            background-size: cover;
-            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .biography-image::before {
-            content: '📸';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 80px;
-            opacity: 0.3;
-        }
-
-        .biography-text p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #ccc;
-            margin-bottom: 20px;
+        .biography-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Parcours Section */
+          /* Parcours Section */
         .parcours-timeline {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
             position: relative;
-            padding-left: 40px;
+            padding-left: 0;
         }
 
         .parcours-timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: none;
         }
 
         .parcours-item {
             position: relative;
-            margin-bottom: 50px;
-            padding-left: 40px;
+            margin-bottom: 80px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border-left: 4px solid;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
         }
 
         .parcours-item::before {
-            content: '';
-            position: absolute;
-            left: -47px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: 3px solid #0a0a0a;
+            display: none;
         }
 
         .parcours-year {
@@ -247,8 +230,8 @@
         }
 
         .parcours-title {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 15px;
             color: #fff;
         }
 
@@ -256,8 +239,35 @@
             font-size: 16px;
             color: #aaa;
             line-height: 1.6;
+            margin-bottom: 30px;
         }
 
+        .parcours-images {
+            display: grid;
+            
+            margin-top: 25px;
+        }
+
+       .parcours-image {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.05);
+       }
+
+        .parcours-image:hover {
+            transform: scale(1.05);
+        }
+
+        .parcours-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            
+           
+        }
         /* Films Section */
         .films-grid {
             display: grid;
@@ -475,18 +485,25 @@
             .hero p {
                 font-size: 16px;
             }
-
-            .biography-content {
-                flex-direction: column;
+.biography-content {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .biography-image {
-                width: 100%;
-                height: 400px;
-                margin-right: 0;
-                margin-bottom: 30px;
+                width: 75%;
+                height: 450px;
+                margin: 0 auto 20px;
             }
 
+            .biography-text p {
+                font-size: 16px;
+                line-height: 1.8;
+                text-align: justify;
+            }
+            }
+         
             nav {
                 padding: 15px 20px;
             }
@@ -527,7 +544,66 @@
                 font-size: 16px;
             }
         }
-    </style>
+       .parcours-images {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.7);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 10000;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 0, 0, 0.8);
+            transform: rotate(90deg);
+        }
+       </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -579,7 +655,7 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>NOM ACTEUR</h1>
+            <h1>Djibril Diaw</h1>
             <p>Acteur • Comédien • Model</p>
         </div>
     </section>
@@ -589,50 +665,60 @@
         <h2>Biography</h2>
         <div class="biography-content">
             <div class="biography-image">
-                <img src="image10.jpeg" alt="Papa Djibril Diaw">
+                <img src="image10.jpeg" alt="Papa Djibril Diaw" style="width: 100%; height: 100%; object-fit: cover;" >
             </div>
             <div class="biography-text">
-                <p>Je m'appelle Djibril Diaw et je vis à Dakar, au Sénégal. Je suis acteur et comédien, avec six années d'expérience dans le cinéma.</p>
-                <p>J'ai suivi plusieurs formations en ateliers d'acteurs, qui m'ont permis de renforcer mon jeu et d'approfondir ma compréhension du travail à l'image. Au fil des années, j'ai eu l'opportunité de jouer dans des séries et des films, notamment en tant qu'acteur principal.</p>
-                <p>Je m'investis pleinement dans chaque rôle avec sérieux, discipline et engagement. Mon objectif est de raconter des histoires fortes, d'incarner des personnages authentiques et de collaborer avec des amoureux du cinéma qui partagent cette même vision artistique. Je reste ouvert à toute collaboration et à de nouveaux projets cinématographiques.</p>
+                <p>Je m’appelle Djibril Diaw et je vis à Dakar, au Sénégal. Je suis acteur et comédien, avec six années d’expérience dans le cinéma .</p>
+                <p>J’ai suivi plusieurs formations en ateliers d’acteurs, qui m’ont permis de renforcer mon jeu et d’approfondir ma compréhension du travail à l’image. Au fil des années, j’ai eu l’opportunité de jouer dans des séries et des films, notamment en tant qu’acteur principal.</p>
+                <p>je m’investis pleinement dans chaque rôle avec sérieux, discipline et engagement. Mon objectif est de raconter des histoires fortes, d’incarner des personnages authentiques et de collaborer avec des amoureux du cinéma qui partagent cette même vision artistique.
+Je reste ouvert à toute collaboration et à de nouveaux projets cinématographiques</p>
             </div>
         </div>
     </section>
-
-    <!-- Parcours Section -->
+     <!-- Parcours Section -->
     <section id="parcours">
         <h2>Parcours</h2>
         <div class="parcours-timeline">
             <div class="parcours-item">
-                <div class="parcours-year">2020 - 2023</div>
-                <div class="parcours-title">Conservatoire National d'Art Dramatique</div>
+                <div class="parcours-year">2024-2025</div>
+                <div class="parcours-title">FESTIVAL DAKAR COURT</div>
                 <div class="parcours-description">
-                    Formation intensive en art dramatique. Spécialisation en techniques de jeu pour le cinéma et le théâtre classique.
+                    Atelier de cinéma
+                </div>
+                <div class="parcours-images">
+                    <div class="parcours-image">
+                        <img src="dakar2.jpeg" alt="Festival Dakar Court" style="width: 300px;">
+                    </div>
+                    <div class="parcours-image">
+                        <img src="dakar1.jpeg" alt="Festival Dakar Court" >
+                    </div>
+                    <div class="parcours-image">
+                        <img src="dakar3.jpeg" alt="Festival Dakar Court">
+                    </div>
                 </div>
             </div>
             <div class="parcours-item">
-                <div class="parcours-year">2018 - 2020</div>
-                <div class="parcours-title">École de Cinéma Paris</div>
+                <div class="parcours-year">2021 - 2022</div>
+                <div class="parcours-title">ACTEUR QUI VEUT</div>
                 <div class="parcours-description">
-                    Diplôme en interprétation cinématographique. Cours de direction d'acteurs et techniques de caméra.
+                    Atelier d'acteurs
                 </div>
-            </div>
-            <div class="parcours-item">
-                <div class="parcours-year">2017</div>
-                <div class="parcours-title">Atelier Théâtre Contemporain</div>
-                <div class="parcours-description">
-                    Stage intensif d'improvisation et de jeu naturel devant la caméra.
-                </div>
-            </div>
-            <div class="parcours-item">
-                <div class="parcours-year">2015 - 2017</div>
-                <div class="parcours-title">Cours Florent</div>
-                <div class="parcours-description">
-                    Formation initiale en art dramatique. Base solide en techniques vocales et corporelles.
+                <div class="parcours-images">
+                    <div class="parcours-image">
+                        <img src="acteur1.jpeg" alt="Acteur Qui Veut" style="width: 200px;">
+                    </div>
+                    <div class="parcours-image">
+                        <img src="acteur2.jpeg" alt="Acteur Qui Veut" style="wi">
+                    </div>
+                    <div class="parcours-image">
+                        <img src="acteur3.jpeg" alt="Acteur Qui Veut" style="height: 210px; width: 400px;">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    
 
     <!-- Films Section -->
     <section id="films">
@@ -787,13 +873,13 @@
         <p style="color: #ccc; font-size: 18px;">Intéressé par une collaboration ? N'hésitez pas à me contacter.</p>
         <div class="contact-info">
             <div class="contact-item">
-                📧 Email: <a href="mailto:contact@acteur.com">contact@acteur.com</a>
+                📧 Email: <a href="djibsonfdv@gmail.com">djibsonfdv@gmail.com</a>
             </div>
             <div class="contact-item">
-                📱 Téléphone: +33 X XX XX XX XX
+                📱 Téléphone: +221 77 797 84 69
             </div>
             <div class="contact-item">
-                📍 Paris, France
+                📍 Dakar, Senegal
             </div>
         </div>
         <div class="social-links">
@@ -850,6 +936,41 @@
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
         });
+
+        // Lightbox pour les images de parcours
+        document.querySelectorAll('.parcours-image img').forEach(img => {
+            img.addEventListener('click', function() {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                lightboxImg.src = this.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Fermer avec Escape ou clic sur fond
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
     </script>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
 </body>
 </html>
