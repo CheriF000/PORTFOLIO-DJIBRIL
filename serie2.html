@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titre de la Série 1 - Djibril Diaw</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-btn {
+            font-size: 16px;
+            color: #667eea;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #764ba2;
+            transform: translateX(-5px);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        .serie-hero {
+            height: 8vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .serie-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .serie-hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .serie-hero h1 {
+            font-size: 72px;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .serie-hero-info {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            font-size: 18px;
+            color: #ddd;
+            flex-wrap: wrap;
+        }
+
+        /* Content Section */
+        .serie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 50px;
+        }
+
+        .serie-section {
+            margin-bottom: 80px;
+        }
+
+        .serie-section h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Affiche */
+        .serie-poster {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+            margin: 0 auto 60px;
+        }
+
+        /* Détails */
+        .serie-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .detail-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+            text-align: center;
+        }
+
+        .detail-item h3 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .detail-item p {
+            font-size: 18px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Vidéos */
+        .videos-grid {
+            display: grid;
+            gap: 50px;
+        }
+
+        .video-item {
+            text-align: center;
+        }
+
+        .video-item h3 {
+            font-size: 28px;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            width: 150%;
+            max-width: 300px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .serie-hero h1 {
+                font-size: 42px;
+            }
+
+            .serie-hero-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .serie-content {
+                padding: 60px 20px;
+            }
+
+            .serie-details {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html#series" class="back-btn">← Retour au Portfolio</a>
+        <div class="logo">Djibril Diaw</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="serie-hero">
+        <div class="serie-hero-content">
+            
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="serie-content">
+        
+        <!-- Affiche -->
+        <div class="serie-poster">
+            <img src="TUKKI1.jpeg" width="500px"  >
+        </div>
+
+        <!-- Détails -->
+        <div class="serie-details">
+            <div class="detail-item">
+                <h3>Réalisateur</h3>
+                <p>Oumar Mbaye</p>
+            </div>
+            <div class="detail-item">
+                <h3>Personnage incarné</h3>
+                <p>Alioune</p>
+            </div>
+            
+        </div>
+
+        <!-- Vidéos -->
+        <div class="serie-section">
+            <h2>Extraits</h2>
+            <div class="videos-grid">
+                
+                <!-- Vidéo 1 -->
+                <div class="video-item">
+                    <h3>Extrait 1</h3>
+                    <div class="video-container" >
+                        <video controls >
+                            <source src="VideoTuKKI2.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la balise vidéo.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Vidéo 2 -->
+                <div class="video-item">
+                    <h3>Extrait 2</h3>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="VideoTuKKI1.MOV" type="video/mp4">
+                            Votre navigateur ne supporte pas la balise vidéo.
+                        </video>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

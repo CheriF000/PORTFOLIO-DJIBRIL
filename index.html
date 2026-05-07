@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Acteur</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Arial', sans-serif;
@@ -18,7 +14,6 @@
             overflow-x: hidden;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -42,11 +37,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
 
         .nav-links a {
             color: #fff;
@@ -62,19 +53,15 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             transition: width 0.3s;
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .nav-links a:hover::after { width: 100%; }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             height: 100vh;
             display: flex;
@@ -84,385 +71,356 @@
             overflow: hidden;
         }
 
-        .hero-slider {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
+        .hero-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
 
         .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            display: flex; justify-content: center; align-items: center; overflow: hidden;
         }
 
-        .hero-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .hero-slide.active {
-            opacity: 1;
-        }
+        .hero-slide img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        .hero-slide.active { opacity: 1; }
 
         .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); z-index: 1;
         }
 
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-            animation: fadeInUp 1s ease-out;
-        }
+        .hero-content { text-align: center; z-index: 2; animation: fadeInUp 1s ease-out; }
 
         .hero h1 {
-            font-size: 80px;
-            margin-bottom: 20px;
-            letter-spacing: 5px;
+            font-size: 80px; margin-bottom: 20px; letter-spacing: 5px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: 24px;
-            color: #aaa;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
+        .hero p { font-size: 24px; color: #aaa; letter-spacing: 3px; text-transform: uppercase; }
 
-        /* Sections */
-        section {
-            padding: 100px 50px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        section { padding: 100px 50px; max-width: 1400px; margin: 0 auto; }
 
         h2 {
-            font-size: 48px;
-            margin-bottom: 50px;
-            text-align: center;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            font-size: 48px; margin-bottom: 50px;
+            text-align: center; letter-spacing: 3px; text-transform: uppercase;
         }
 
-        /* Biography Section */
-        
-        /* Biography Section */
-        .biography-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
+        /* Biography */
+        .biography-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 
         .biography-image {
-            width: 100%;
-            height: 500px;
+            width: 100%; height: 500px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 10px; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        .biography-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .biography-image img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Parcours Section */
-          /* Parcours Section */
-        .parcours-timeline {
-            max-width: 1100px;
-            margin: 0 auto;
-            position: relative;
-            padding-left: 0;
-        }
-
-        .parcours-timeline::before {
-            display: none;
-        }
+        /* Parcours */
+        .parcours-timeline { max-width: 1100px; margin: 0 auto; position: relative; }
+        .parcours-timeline::before { display: none; }
 
         .parcours-item {
-            position: relative;
-            margin-bottom: 80px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
+            position: relative; margin-bottom: 80px; padding: 30px;
+            background: rgba(255,255,255,0.03); border-radius: 15px;
             border-left: 4px solid;
             border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
         }
 
-        .parcours-item::before {
-            display: none;
+        .parcours-item::before { display: none; }
+
+        .parcours-year { font-size: 16px; color: #667eea; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .parcours-title { font-size: 28px; margin-bottom: 15px; color: #fff; }
+        .parcours-description { font-size: 16px; color: #aaa; line-height: 1.6; margin-bottom: 30px; }
+
+        .parcours-images { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 25px; }
+
+        .parcours-image {
+            width: 100%; height: 450px;
+            border-radius: 10px; overflow: hidden;
+            transition: transform 0.3s; cursor: pointer;
+            background: rgba(255,255,255,0.05);
         }
 
-        .parcours-year {
-            font-size: 16px;
-            color: #667eea;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .parcours-image:hover { transform: scale(1.05); }
+        .parcours-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        .acteur-images { height: 400px !important; }
+        .acteur-images img { object-fit: contain !important; }
 
-        .parcours-title {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .parcours-description {
-            font-size: 16px;
-            color: #aaa;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        .parcours-images {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-     .parcours-image {
-            width: 100%;
-            height: 450px;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            cursor: pointer;
-            background: rgba(255, 255, 255, 0.05);
-       }
-       
-
-        .parcours-image:hover {
-            transform: scale(1.05);
-        }
-
-       .parcours-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .acteur-images img {
-            object-fit: contain !important;
-        }
-        
-        /* Films Section */
-        .films-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        /* Films */
+        .films-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
         .film-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
+            background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
         }
 
-        .film-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
-        }
+        .film-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(102,126,234,0.3); }
 
         .film-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .film-info {
-            padding: 20px;
-        }
-
-        .film-info h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .film-info p {
-            color: #aaa;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        /* Photos Gallery */
-        .photos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .photo-item {
-            height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
+            width: 100%; height: 200px; background: black;
+            display: flex; align-items: center; justify-content: center;
             overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            background-size: cover;
-            background-position: center;
         }
 
-        .photo-item:hover {
-            transform: scale(1.05);
-        }
+        .film-image img { width: 100%; height: 100%;  }
+        .film-info { padding: 20px; }
+        .film-info h3 { font-size: 22px; margin-bottom: 10px; }
+        .film-info p { color: #aaa; font-size: 14px; margin-bottom: 5px; }
 
-        /* Publicité Section */
-        .publicite-grid {
+        /* Photos */
+        .photos-categories {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .pub-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .pub-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
-        }
-
-        .pub-video {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-        }
-
-        .pub-info {
-            padding: 20px;
-        }
-
-        .pub-info h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .pub-info p {
-            color: #aaa;
-            font-size: 14px;
-        }
-
-        /* Bande Demo Section */
-        .demo-container {
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
             max-width: 900px;
             margin: 0 auto;
         }
 
-        .demo-video {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            margin-bottom: 30px;
-        }
-
-        .demo-description {
-            text-align: center;
-            color: #ccc;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        /* Contact Footer */
-        .contact-footer {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 60px 50px;
-            text-align: center;
-            margin-top: 100px;
-        }
-
-        .contact-info {
+        .photo-category {
+            text-decoration: none;
+            color: #fff;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            margin-top: 30px;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s;
         }
 
-        .contact-item {
-            font-size: 18px;
-            color: #ccc;
+        .photo-category:hover { transform: translateY(-8px); }
+
+        .photo-category-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            background: #111;
         }
 
-        .contact-item a {
-            color: #667eea;
-            text-decoration: none;
-            transition: color 0.3s;
+        .photo-category-img img {
+            width: 100%; height: 100%;
+            object-fit: cover; display: block;
+            transition: transform 0.4s;
         }
 
-        .contact-item a:hover {
-            color: #764ba2;
+        .photo-category:hover .photo-category-img img { transform: scale(1.06); }
+
+        .photo-category-overlay {
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s;
         }
 
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 30px;
+        .photo-category-overlay span {
+            color: #fff; font-size: 16px;
+            letter-spacing: 2px; text-transform: uppercase;
+            border: 1px solid #fff;
+            padding: 10px 20px; border-radius: 4px;
         }
+
+        .photo-category:hover .photo-category-overlay { opacity: 1; }
+
+        .photo-category h3 {
+            font-size: 22px; letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .photos-categories { grid-template-columns: 1fr; max-width: 400px; }
+        }
+
+        /* Publicité */
+        .publicite-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+
+        .pub-card {
+            background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .pub-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(102,126,234,0.3); }
+
+        .pub-media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+
+        /* Thumbnail cliquable */
+        .pub-thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            cursor: pointer;
+            background: #111;
+        }
+
+        .pub-thumb img {
+            width: 100%; height: 100%;
+            object-fit: cover; display: block;
+            transition: transform 0.3s;
+        }
+
+        .pub-thumb:hover img { transform: scale(1.06); }
+
+        .pub-overlay {
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.45);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; color: #fff;
+            opacity: 0; transition: opacity 0.3s;
+        }
+
+        .pub-thumb:hover .pub-overlay { opacity: 1; }
+
+        /* Thumbnail vidéo */
+        .pub-thumb-vid { aspect-ratio: 16/9; }
+        .pub-media-single .pub-thumb-vid { aspect-ratio: 16/9; width: 100%; }
+
+        .pub-vid-placeholder {
+            width: 100%; height: 100%;
+            background: #000;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* La vidéo réelle utilisée comme miniature */
+        .pub-vid-placeholder video {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .pub-play-btn {
+            position: absolute;
+            width: 54px; height: 54px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; color: #fff;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Lightbox pub */
+        .pub-lightbox {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.96); z-index: 9999;
+            flex-direction: column;
+            justify-content: center; align-items: center;
+        }
+
+        .pub-lightbox.active { display: flex; }
+
+        .pub-lightbox-media {
+            max-width: 90vw; max-height: 78vh;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .pub-lightbox-media img {
+            max-width: 90vw; max-height: 78vh;
+            object-fit: contain; border-radius: 8px; display: block;
+        }
+
+        .pub-lightbox-media video {
+            max-width: 90vw; max-height: 78vh;
+            border-radius: 8px; display: block; outline: none;
+        }
+
+        .pub-lightbox-close {
+            position: fixed; top: 18px; right: 18px;
+            font-size: 38px; color: #fff; cursor: pointer;
+            background: rgba(0,0,0,0.7); width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s; z-index: 10001;
+        }
+
+        .pub-lightbox-close:hover { background: rgba(255,0,0,0.8); transform: rotate(90deg); }
+
+        .pub-lightbox-nav {
+            display: flex; gap: 20px; margin-top: 18px;
+        }
+
+        .pub-nav-btn {
+            background: rgba(255,255,255,0.15); border: none; color: #fff;
+            font-size: 26px; width: 50px; height: 50px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .pub-nav-btn:hover { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .pub-nav-btn:disabled { opacity: 0.2; cursor: default; }
+
+        .pub-lightbox-counter {
+            color: #888; font-size: 13px; margin-top: 8px; letter-spacing: 1px;
+        }
+
+        .pub-info { padding: 20px; }
+        .pub-info h3 { font-size: 20px; margin-bottom: 10px; }
+        .pub-info p { color: #aaa; font-size: 14px; }
+
+        /* Bande Demo */
+        .demo-container { max-width: 1100px; margin: 0 auto; }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .demo-item { display: flex; flex-direction: column; gap: 12px; }
+
+        .demo-item video {
+            width: 100%;
+            border-radius: 10px;
+            background: black;
+            display: block;
+        }
+
+        /* Bande Démo 1 : format carré 576x576 */
+        .demo-item.demo-square video {
+            aspect-ratio: 1 / 1;
+        }
+
+        /* Bande Démo 2 : format 1120x720 ≈ 14/9 */
+        .demo-item.demo-wide video {
+            aspect-ratio: 1120 / 720;
+        }
+
+        .demo-label {
+            text-align: center;
+            color: #aaa;
+            font-size: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .demo-description { text-align: center; color: #ccc; font-size: 18px; line-height: 1.8; }
+
+        /* Contact */
+        .contact-footer {
+            background: rgba(255,255,255,0.05);
+            padding: 60px 50px; text-align: center; margin-top: 100px;
+        }
+
+        .contact-info { display: flex; flex-direction: column; gap: 20px; margin-top: 30px; }
+        .contact-item { font-size: 18px; color: #ccc; }
+        .contact-item a { color: #667eea; text-decoration: none; transition: color 0.3s; }
+        .contact-item a:hover { color: #764ba2; }
+
+        .social-links { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
 
         .social-links a {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            transition: all 0.3s;
-            text-decoration: none;
+            width: 50px; height: 50px;
+            background: rgba(255,255,255,0.1); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; transition: all 0.3s; text-decoration: none;
         }
 
         .social-links a:hover {
@@ -470,154 +428,66 @@
             transform: translateY(-5px);
         }
 
-        /* Animations */
+        /* Films note */
+        .films-note {
+            background: rgba(255,255,255,0.03); padding: 20px; border-radius: 10px;
+            margin-bottom: 40px; text-align: center; border-left: 3px solid #667eea;
+        }
+
+        .films-note p { color: #aaa; font-size: 16px; margin: 0; }
+        .films-note strong { color: #667eea; }
+
+        /* Lightbox */
+        .lightbox {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); z-index: 9999;
+            justify-content: center; align-items: center;
+        }
+
+        .lightbox.active { display: flex; }
+
+        .lightbox-content { max-width: 90%; max-height: 90%; position: relative; }
+
+        .lightbox-content img { width: 100%; height: 100%; object-fit: contain; border-radius: 10px; }
+
+        .lightbox-close {
+            position: fixed; top: 20px; right: 20px;
+            font-size: 40px; color: white; cursor: pointer;
+            background: rgba(0,0,0,0.7); width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s; z-index: 10000;
+        }
+
+        .lightbox-close:hover { background: rgba(255,0,0,0.8); transform: rotate(90deg); }
+
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-.biography-content {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .biography-image {
-                width: 75%;
-                height: 450px;
-                margin: 0 auto 20px;
-            }
-
-            .biography-text p {
-                font-size: 16px;
-                line-height: 1.8;
-                text-align: justify;
-            }
-            }
-         
-            nav {
-                padding: 15px 20px;
-            }
-
-            .logo {
-                font-size: 18px;
-            }
-
-            .nav-links {
-                gap: 8px;
-                font-size: 9px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            section {
-                padding: 60px 20px;
-            }
-
-            h2 {
-                font-size: 32px;
-            }
-
-            .films-grid,
-            .publicite-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .parcours-timeline {
-                padding-left: 30px;
-            }
-
-            .parcours-item {
-                padding-left: 30px;
-            }
-
-            .biography-text p {
-                font-size: 16px;
-            }
-     
-.parcours-image {
-                height: 300px;
-            }
-            
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
+            .hero h1 { font-size: 40px; }
+            .hero p { font-size: 16px; }
+            nav { padding: 15px 20px; }
+            .logo { font-size: 18px; }
+            .nav-links { gap: 8px; font-size: 9px; flex-wrap: wrap; justify-content: center; }
+            section { padding: 60px 20px; }
+            h2 { font-size: 32px; }
+            .biography-content { grid-template-columns: 1fr; gap: 30px; }
+            .biography-image { width: 75%; height: 450px; margin: 0 auto 20px; }
+            .biography-text p { font-size: 16px; line-height: 1.8; text-align: justify; }
+            .films-grid, .publicite-grid { grid-template-columns: 1fr; }
+            .parcours-timeline { padding-left: 0; }
+            .parcours-item { padding-left: 20px; }
+            .parcours-image { height: 300px; }
+            .demo-grid { grid-template-columns: 1fr; }
         }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-        }
-
-        .lightbox-content img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 10px;
-        }
-
-        .lightbox-close {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            font-size: 40px;
-            color: white;
-            cursor: pointer;
-            background: rgba(0, 0, 0, 0.7);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            z-index: 10000;
-        }
-
-        .lightbox-close:hover {
-            background: rgba(255, 0, 0, 0.8);
-            transform: rotate(90deg);
-        }
-    .acteur-images {
-            height: 400px !important;
-        }
-
-        .acteur-images img {
-            object-fit: contain !important;
-        }
-       </style>
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav>
         <div class="logo">Djibril Diaw</div>
         <ul class="nav-links">
@@ -632,37 +502,17 @@
         </ul>
     </nav>
 
-    <!-- Home Section -->
     <section id="home" class="hero">
-        <!-- Slider d'images -->
         <div class="hero-slider">
-            <div class="hero-slide active">
-                <img src="image11.jpeg" alt="Papa Djibril Diaw">
-            </div>
-            <div class="hero-slide">
-                <img src="image2.jpeg" alt="Papa Djibril Diaw">
-            </div>
-            <div class="hero-slide">
-                <img src="image3.jpeg" alt="Papa Djibril Diaw">
-            </div>
-            <div class="hero-slide">
-                <img src="image9.jpeg" alt="Papa Djibril Diaw">
-            </div>
-            <div class="hero-slide">
-                <img src="image8.jpeg" alt="Papa Djibril Diaw">
-            </div>
-            <div class="hero-slide">
-                <img src="image4.jpeg" alt="Papa Djibril Diaw">
-            </div>
-            <div class="hero-slide">
-                <img src="image5.jpeg" alt="Papa Djibril Diaw">
-            </div>
-            <div class="hero-slide">
-                <img src="image7.jpeg" alt="Papa Djibril Diaw">
-            </div>
-            <div class="hero-slide">
-                <img src="image6.jpeg" alt="Papa Djibril Diaw">
-            </div>
+            <div class="hero-slide active"><img src="image11.jpeg" alt="Papa Djibril Diaw"></div>
+            <div class="hero-slide"><img src="image2.jpeg" alt="Papa Djibril Diaw"></div>
+            <div class="hero-slide"><img src="image3.jpeg" alt="Papa Djibril Diaw"></div>
+            <div class="hero-slide"><img src="image9.jpeg" alt="Papa Djibril Diaw"></div>
+            <div class="hero-slide"><img src="image8.jpeg" alt="Papa Djibril Diaw"></div>
+            <div class="hero-slide"><img src="image4.jpeg" alt="Papa Djibril Diaw"></div>
+            <div class="hero-slide"><img src="image5.jpeg" alt="Papa Djibril Diaw"></div>
+            <div class="hero-slide"><img src="image7.jpeg" alt="Papa Djibril Diaw"></div>
+            <div class="hero-slide"><img src="image6.jpeg" alt="Papa Djibril Diaw"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -671,238 +521,296 @@
         </div>
     </section>
 
-    <!-- Biography Section -->
     <section id="biography">
         <h2>Biography</h2>
         <div class="biography-content">
             <div class="biography-image">
-                <img src="image10.jpeg" alt="Papa Djibril Diaw" style="width: 100%; height: 100%; object-fit: cover;" >
+                <img src="image10.jpeg" alt="Papa Djibril Diaw" style="width:100%;height:100%;object-fit:cover;">
             </div>
             <div class="biography-text">
-                <p>Je m’appelle Djibril Diaw et je vis à Dakar, au Sénégal. Je suis acteur et comédien, avec six années d’expérience dans le cinéma .</p>
-                <p>J’ai suivi plusieurs formations en ateliers d’acteurs, qui m’ont permis de renforcer mon jeu et d’approfondir ma compréhension du travail à l’image. Au fil des années, j’ai eu l’opportunité de jouer dans des séries et des films, notamment en tant qu’acteur principal.</p>
-                <p>je m’investis pleinement dans chaque rôle avec sérieux, discipline et engagement. Mon objectif est de raconter des histoires fortes, d’incarner des personnages authentiques et de collaborer avec des amoureux du cinéma qui partagent cette même vision artistique.</p>
-<br>
-   <P> Je reste ouvert à toute collaboration et à de nouveaux projets cinématographiques</p>
+                <p>Je m'appelle Djibril Diaw et je vis à Dakar, au Sénégal. Je suis acteur et comédien, avec six années d'expérience dans le cinéma.</p>
+                <p>J'ai suivi plusieurs formations en ateliers d'acteurs, qui m'ont permis de renforcer mon jeu et d'approfondir ma compréhension du travail à l'image. Au fil des années, j'ai eu l'opportunité de jouer dans des séries et des films, notamment en tant qu'acteur principal.</p>
+                <p>Je m'investis pleinement dans chaque rôle avec sérieux, discipline et engagement. Mon objectif est de raconter des histoires fortes, d'incarner des personnages authentiques et de collaborer avec des amoureux du cinéma qui partagent cette même vision artistique.</p>
+                <br>
+                <p>Je reste ouvert à toute collaboration et à de nouveaux projets cinématographiques.</p>
             </div>
         </div>
     </section>
-     <!-- Parcours Section -->
+
     <section id="parcours">
         <h2>Parcours</h2>
         <div class="parcours-timeline">
             <div class="parcours-item">
                 <div class="parcours-year">2024-2025</div>
                 <div class="parcours-title">FESTIVAL DAKAR COURT</div>
-                <div class="parcours-description">
-                    Atelier de cinéma
-                </div>
+                <div class="parcours-description">Atelier de cinéma</div>
                 <div class="parcours-images">
-                    <div class="parcours-image">
-                        <img src="dakar2.jpeg" alt="Festival Dakar Court">
-                    </div>
-                    <div class="parcours-image">
-                        <img src="dakar1.jpeg" alt="Festival Dakar Court" >
-                    </div>
-                    <div class="parcours-image">
-                        <img src="dakar3.jpeg" alt="Festival Dakar Court">
-                    </div>
+                    <div class="parcours-image"><img src="dakar2.jpeg" alt="Festival Dakar Court"></div>
+                    <div class="parcours-image"><img src="dakar1.jpeg" alt="Festival Dakar Court"></div>
+                    <div class="parcours-image"><img src="dakar3.jpeg" alt="Festival Dakar Court"></div>
                 </div>
             </div>
             <div class="parcours-item">
                 <div class="parcours-year">2021 - 2022</div>
                 <div class="parcours-title">ACTEUR QUI VEUT</div>
-                <div class="parcours-description">
-                    Atelier d'acteurs
+                <div class="parcours-description">Atelier d'acteurs</div>
+                <div class="parcours-images">
+                    <div class="parcours-image acteur-images"><img src="acteur1.jpeg" alt="Acteur Qui Veut"></div>
+                    <div class="parcours-image acteur-images"><img src="acteur2.jpeg" alt="Acteur Qui Veut"></div>
+                    <div class="parcours-image acteur-images"><img src="acteur3.jpeg" alt="Acteur Qui Veut"></div>
                 </div>
-                
-                <div class="parcours-images" >
-                    <div class="parcours-image acteur-images">
-                        <img src="acteur1.jpeg" alt="Acteur Qui Veut">
-                    </div>
-                    <div class="parcours-image acteur-images">
-                        <img src="acteur2.jpeg" alt="Acteur Qui Veut">
-                    </div>
-                    <div class="parcours-image acteur-images">
-                        <img src="acteur3.jpeg" alt="Acteur Qui Veut">
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
     </section>
 
-    
-
-    <!-- Films Section -->
     <section id="films">
         <h2>Films</h2>
+        <div class="films-note">
+            <p><strong>NB :</strong> Cliquez sur un film pour voir ses informations détaillées et images.</p>
+        </div>
         <div class="films-grid">
-            
-            <div class="film-card"> 
-               <a href="film1.html"><div class="film-image"><img src="REFUS.jpeg " width="450px" height="200px"></div></a>
-                <div class="film-info">
-                    <h3>LE REFUS</h3>
-                    <p>Personnage incarné : Issa</p>
-                    <p>Réalisateur: Meissa Wade</p>
-                    <p>Année: 2025</p>
-                </div>
+            <div class="film-card">
+                <a href="film1.html" style="text-decoration:none;color:inherit;">
+                    <div class="film-image"><img src="REFUS.jpeg" alt="Le Refus" height="10px"></div>
+                    <div class="film-info">
+                        <h3>LE REFUS</h3>
+                        <p>Personnage incarné : Issa</p>
+                        <p>Réalisateur: Meissa Wade</p>
+                        <p>Année: 2025</p>
+                    </div>
+                </a>
             </div>
             <div class="film-card">
-                <div class="film-image">🎭</div>
-                <div class="film-info">
-                    <h3>Titre du Film 2</h3>
-                    <p>Rôle: Second Rôle</p>
-                    <p>Réalisateur: Nom du Réalisateur</p>
-                    <p>Année: 2023</p>
-                </div>
-            </div>
-            <div class="film-card">
-                <div class="film-image">🎥</div>
-                <div class="film-info">
-                    <h3>Titre du Film 3</h3>
-                    <p>Rôle: Rôle Principal</p>
-                    <p>Réalisateur: Nom du Réalisateur</p>
-                    <p>Année: 2023</p>
-                </div>
-            </div>
-            <div class="film-card">
-                <div class="film-image">🎞️</div>
-                <div class="film-info">
-                    <h3>Titre du Film 4</h3>
-                    <p>Rôle: Personnage Secondaire</p>
-                    <p>Réalisateur: Nom du Réalisateur</p>
-                    <p>Année: 2022</p>
-                </div>
+                <a href="film2.html" style="text-decoration:none;color:inherit;">
+                    <div class="film-image"><img src="MARTABA6.jpeg" alt="Martaba"></div>
+                    <div class="film-info">
+                        <h3>MARTABA</h3>
+                        <p>Personnage incarné : Marigo</p>
+                        <p>Réalisateur: Mouhamed Siradji Diop</p>
+                        <p>Année: 2023</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Séries Section -->
     <section id="series">
         <h2>Séries</h2>
+        <div class="films-note">
+            <p><strong>NB :</strong> Cliquez sur <strong>Modèle</strong> pour voir les photos modèle, et sur <strong>Casting</strong> pour voir les photos casting.</p>
+        </div>
         <div class="films-grid">
             <div class="film-card">
-                <div class="film-image">📺</div>
-                <div class="film-info">
-                    <h3>Titre de la Série 1</h3>
-                    <p>Rôle: Personnage Récurrent</p>
-                    <p>Réalisateur: Nom du Réalisateur</p>
-                    <p>Saisons: 2-3 • Année: 2024</p>
-                </div>
+                <a href="serie1.html" style="text-decoration:none;color:inherit;">
+                    <div class="film-image"><img src="PLANA.jpeg" alt="Plan A 3"></div>
+                    <div class="film-info">
+                        <h3>PLAN A 3</h3>
+                        <p>Personnage incarné : Racine</p>
+                        <p>Réalisateur: Babacar Niang</p>
+                    </div>
+                </a>
             </div>
             <div class="film-card">
-                <div class="film-image">📡</div>
-                <div class="film-info">
-                    <h3>Titre de la Série 2</h3>
-                    <p>Rôle: Guest Star</p>
-                    <p>Réalisateur: Nom du Réalisateur</p>
-                    <p>Saison: 1 • Année: 2023</p>
-                </div>
-            </div>
-            <div class="film-card">
-                <div class="film-image">🎪</div>
-                <div class="film-info">
-                    <h3>Titre de la Série 3</h3>
-                    <p>Rôle: Rôle Principal</p>
-                    <p>Réalisateur: Nom du Réalisateur</p>
-                    <p>Saisons: 1-2 • Année: 2022-2023</p>
-                </div>
-            </div>
-            <div class="film-card">
-                <div class="film-image">🌟</div>
-                <div class="film-info">
-                    <h3>Titre de la Série 4</h3>
-                    <p>Rôle: Second Rôle</p>
-                    <p>Réalisateur: Nom du Réalisateur</p>
-                    <p>Saison: 1 • Année: 2022</p>
-                </div>
+                <a href="serie2.html" style="text-decoration:none;color:inherit;">
+                    <div class="film-image"><img src="TUKKI1.jpeg" alt="Tukki"></div>
+                    <div class="film-info">
+                        <h3>TUKKI</h3>
+                        <p>Rôle: Alioune</p>
+                        <p>Réalisateur: Oumar Mbaye</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Photos Section -->
     <section id="photos">
         <h2>Photos</h2>
-        <div class="photos-grid">
-            <div class="photo-item">📷</div>
-            <div class="photo-item">🎨</div>
-            <div class="photo-item">🌟</div>
-            <div class="photo-item">✨</div>
-            <div class="photo-item">🎪</div>
-            <div class="photo-item">🎯</div>
-            <div class="photo-item">🎭</div>
-            <div class="photo-item">🎬</div>
+        <div class="films-note">
+            <p><strong>NB :</strong> Cliquez sur <strong>la photo Model</strong> pour voir les photos model, et sur <strong> la photo Casting</strong> pour voir les photos casting.</p>
+        </div>
+        <div class="photos-categories">
+            <a href="photos-model.html" class="photo-category">
+                <div class="photo-category-img">
+                    <img src="model1.jpeg" alt="Modèle">
+                    <div class="photo-category-overlay">
+                        <span>Voir les photos</span>
+                    </div>
+                </div>
+                <h3>MODEL</h3>
+            </a>
+            <a href="photos-casting.html" class="photo-category">
+                <div class="photo-category-img">
+                    <img src="casting1.jpeg" alt="Casting">
+                    <div class="photo-category-overlay">
+                        <span>Voir les photos</span>
+                    </div>
+                </div>
+                <h3>CASTING</h3>
+            </a>
         </div>
     </section>
 
-    <!-- Publicité Section -->
     <section id="publicite">
         <h2>Publicité</h2>
         <div class="publicite-grid">
+
+            <!-- 1. MON CHOCO - 2 photos -->
             <div class="pub-card">
-                <div class="pub-video">▶️</div>
-                <div class="pub-info">
-                    <h3>Marque de Luxe</h3>
-                    <p>Campagne internationale 2024</p>
+                <div class="pub-media-grid">
+                    <div class="pub-thumb" data-gallery="monchoco" data-index="0" data-type="image" data-src="MONCHOCO1.jpeg">
+                        <img src="MONCHOCO1.jpeg" alt="Mon Choco">
+                        <div class="pub-overlay"></div>
+                    </div>
+                    <div class="pub-thumb" data-gallery="monchoco" data-index="1" data-type="image" data-src="MONCHOCO2.jpeg">
+                        <img src="MONCHOCO2.jpeg" alt="Mon Choco">
+                        <div class="pub-overlay"></div>
+                    </div>
                 </div>
+                <div class="pub-info"><h3>MON CHOCO</h3><p>Campagne publicitaire photo</p></div>
             </div>
+
+            <!-- 2. GAZELLE LIMONADE - 2 photos -->
             <div class="pub-card">
-                <div class="pub-video">▶️</div>
-                <div class="pub-info">
-                    <h3>Parfum Premium</h3>
-                    <p>Spot TV national 2023</p>
+                <div class="pub-media-grid">
+                    <div class="pub-thumb" data-gallery="gazelle" data-index="0" data-type="image" data-src="gazelle1.jpeg">
+                        <img src="gazelle1.jpeg" alt="Gazelle Limonade">
+                        <div class="pub-overlay"></div>
+                    </div>
+                    <div class="pub-thumb" data-gallery="gazelle" data-index="1" data-type="image" data-src="gazelle2.jpeg">
+                        <img src="gazelle2.jpeg" alt="Gazelle Limonade">
+                        <div class="pub-overlay"></div>
+                    </div>
                 </div>
+                <div class="pub-info"><h3>GAZELLE LIMONADE</h3><p>Campagne publicitaire photo</p></div>
             </div>
+
+            <!-- 3. WAVE - 1 vidéo -->
             <div class="pub-card">
-                <div class="pub-video">▶️</div>
-                <div class="pub-info">
-                    <h3>Automobile</h3>
-                    <p>Publicité digitale 2023</p>
+                <div class="pub-media-single">
+                    <div class="pub-thumb pub-thumb-vid" data-gallery="wave" data-index="0" data-type="video" data-src="wave.mp4">
+                        <div class="pub-vid-placeholder">
+                            <video src="wave.mp4" muted preload="metadata" playsinline></video>
+                            <div class="pub-play-btn">▶</div>
+                        </div>
+                        
+                    </div>
                 </div>
+                <div class="pub-info"><h3>WAVE 🔵⚫️</h3><p>Spot publicitaire vidéo</p></div>
             </div>
+
+            <!-- 4. YAS - 1 vidéo -->
             <div class="pub-card">
-                <div class="pub-video">▶️</div>
-                <div class="pub-info">
-                    <h3>Mode & Style</h3>
-                    <p>Campagne print & vidéo 2022</p>
+                <div class="pub-media-single">
+                    <div class="pub-thumb pub-thumb-vid" data-gallery="yas" data-index="0" data-type="video" data-src="yas.mp4">
+                        <div class="pub-vid-placeholder">
+                            <video src="yas.mp4" muted preload="metadata" playsinline></video>
+                            <div class="pub-play-btn">▶</div>
+                        </div>
+                       
+                    </div>
                 </div>
+                <div class="pub-info"><h3>YAS 🟡🔵</h3><p>Spot publicitaire vidéo</p></div>
             </div>
+
+            <!-- 5. MAXIT - 1 photo + 1 vidéo -->
+            <div class="pub-card">
+                <div class="pub-media-grid">
+                    <div class="pub-thumb" data-gallery="maxit" data-index="0" data-type="image" data-src="maxit.jpeg">
+                        <img src="maxit.jpeg" alt="Maxit">
+                        <div class="pub-overlay"></div>
+                    </div>
+                    <div class="pub-thumb pub-thumb-vid" data-gallery="maxit" data-index="1" data-type="video" data-src="maxit.mp4">
+                        <div class="pub-vid-placeholder">
+                            <video src="maxit.mp4" muted preload="metadata" playsinline></video>
+                            <div class="pub-play-btn">▶</div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="pub-info"><h3>MAXIT</h3><p>Campagne photo & vidéo</p></div>
+            </div>
+
+            <!-- 6. SAVON LUMI - 1 vidéo -->
+            <div class="pub-card">
+                <div class="pub-media-single">
+                    <div class="pub-thumb pub-thumb-vid" data-gallery="savonlumi" data-index="0" data-type="video" data-src="savonlumi.mp4">
+                        <div class="pub-vid-placeholder">
+                            <video src="savonlumi.mp4" muted preload="metadata" playsinline></video>
+                            <div class="pub-play-btn">▶</div>
+                        </div>
+                        <div class="pub-overlay"></div>
+                    </div>
+                </div>
+                <div class="pub-info"><h3>SAVON LUMI 🧼</h3><p>Spot publicitaire vidéo</p></div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Bande Demo Section -->
+    <!-- ✅ BANDE DEMO - 2 vidéos côte à côte -->
     <section id="demo">
         <h2>Bande Demo</h2>
         <div class="demo-container">
-            <div class="demo-video">▶️</div>
+            <div class="demo-grid">
+                <div class="demo-item demo-square">
+                    <video controls>
+                        <source src="demo1.mp4" type="video/mp4">
+                    </video>
+                    <p class="demo-label">Bande Démo 1</p>
+                </div>
+                <div class="demo-item demo-wide">
+                    <video controls>
+                        <source src="demo2.mp4" type="video/mp4">
+                    </video>
+                    <p class="demo-label">Bande Démo 2</p>
+                </div>
+            </div>
             <div class="demo-description">
-                <p>Découvrez une compilation de mes meilleurs moments à l'écran. Cette bande démo présente un aperçu de mon travail dans différents registres : drame, comédie, action, et plus encore.</p>
+                <p>Découvrez une compilation de mes meilleurs moments à l'écran. Ces bandes démo présentent un aperçu de mon travail dans différents registres : drame, comédie, action, et plus encore.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Footer -->
     <div class="contact-footer">
         <h2>Contact</h2>
-        <p style="color: #ccc; font-size: 18px;">Intéressé par une collaboration ? N'hésitez pas à me contacter.</p>
+        <p style="color:#ccc;font-size:18px;">Intéressé par une collaboration ? N'hésitez pas à me contacter.</p>
         <div class="contact-info">
-            <div class="contact-item">
-                📧 Email: <a href="djibsonfdv@gmail.com">djibsonfdv@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                📱 Téléphone: +221 77 797 84 69
-            </div>
-            <div class="contact-item">
-                📍 Dakar, Senegal
-            </div>
+            <div class="contact-item">📧 Email: <a href="mailto:djibsonfdv@gmail.com">djibsonfdv@gmail.com</a></div>
+            <div class="contact-item">📱 Téléphone: +221 77 797 84 69</div>
+            <div class="contact-item">📍 Dakar, Senegal</div>
         </div>
         <div class="social-links">
-            <a href="#" title="Instagram">📸</a>
-            <a href="#" title="Facebook">👤</a>
-            <a href="#" title="Twitter">🐦</a>
-            <a href="#" title="LinkedIn">💼</a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/djibson_lery_?igsh=aGd6ajBzM2lwODQ0" target="_blank" title="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/221777978469" target="_blank" title="WhatsApp">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+            </a>
         </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Lightbox Publicité -->
+    <div class="pub-lightbox" id="pubLightbox">
+        <span class="pub-lightbox-close" onclick="closePubLightbox()">×</span>
+        <div class="pub-lightbox-media" id="pubLightboxMedia"></div>
+        <div class="pub-lightbox-nav">
+            <button class="pub-nav-btn" id="pubPrev" onclick="pubNav(-1)">&#8592;</button>
+            <button class="pub-nav-btn" id="pubNext" onclick="pubNav(1)">&#8594;</button>
+        </div>
+        <div class="pub-lightbox-counter" id="pubCounter"></div>
     </div>
 
     <script>
@@ -916,49 +824,32 @@
             currentSlide = (currentSlide + 1) % totalSlides;
             slides[currentSlide].classList.add('active');
         }
-
-        // Change slide every 4 seconds
         setInterval(nextSlide, 4000);
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
         // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting)
                     entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
-                }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
 
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
+        document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-        // Lightbox pour les images de parcours
+        // Lightbox parcours
         document.querySelectorAll('.parcours-image img').forEach(img => {
             img.addEventListener('click', function() {
-                const lightbox = document.getElementById('lightbox');
-                const lightboxImg = document.getElementById('lightbox-img');
-                lightboxImg.src = this.src;
-                lightbox.classList.add('active');
+                document.getElementById('lightbox-img').src = this.src;
+                document.getElementById('lightbox').classList.add('active');
             });
         });
 
@@ -966,35 +857,110 @@
             document.getElementById('lightbox').classList.remove('active');
         }
 
-        // Fermer avec Escape ou clic sur fond
         document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLightbox();
-            }
+            if (e.target === this) closeLightbox();
         });
 
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
+            if (e.key === 'Escape') closeLightbox();
         });
 
-        // Navigation vers les pages de films
-        document.querySelectorAll('.film-card').forEach((card, index) => {
-            card.addEventListener('click', function() {
-                window.location.href = `film${index + 1}.html`;
+        // ✅ Pause toutes les autres vidéos quand une vidéo démarre
+        document.querySelectorAll('video').forEach(video => {
+            video.addEventListener('play', function() {
+                document.querySelectorAll('video').forEach(other => {
+                    if (other !== this) other.pause();
+                });
             });
         });
 
-        
-    </script>
+        // ====== MINIATURES VIDÉO : positionner à 1s pour afficher la première image ======
+        document.querySelectorAll('.pub-vid-placeholder video').forEach(video => {
+            video.addEventListener('loadedmetadata', function() {
+                this.currentTime = 1;
+            });
+        });
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <span class="lightbox-close" onclick="closeLightbox()">×</span>
-        <div class="lightbox-content">
-            <img id="lightbox-img" src="" alt="">
-        </div>
-    </div>
+        // ====== LIGHTBOX PUBLICITÉ ======
+        const pubGalleries = {};
+        document.querySelectorAll('.pub-thumb').forEach(thumb => {
+            const g = thumb.dataset.gallery;
+            if (!pubGalleries[g]) pubGalleries[g] = [];
+            pubGalleries[g].push({ type: thumb.dataset.type, src: thumb.dataset.src });
+        });
+
+        let currentGallery = null;
+        let currentPubIndex = 0;
+
+        document.querySelectorAll('.pub-thumb').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                currentGallery = this.dataset.gallery;
+                currentPubIndex = parseInt(this.dataset.index);
+                openPubLightbox();
+            });
+        });
+
+        function openPubLightbox() {
+            const items = pubGalleries[currentGallery];
+            const item = items[currentPubIndex];
+            const mediaEl = document.getElementById('pubLightboxMedia');
+
+            // Stopper vidéo précédente
+            const oldVideo = mediaEl.querySelector('video');
+            if (oldVideo) { oldVideo.pause(); oldVideo.src = ''; }
+            mediaEl.innerHTML = '';
+
+            if (item.type === 'image') {
+                const img = document.createElement('img');
+                img.src = item.src;
+                mediaEl.appendChild(img);
+            } else {
+                const video = document.createElement('video');
+                video.controls = true;
+                video.autoplay = true;
+                const source = document.createElement('source');
+                source.src = item.src;
+                source.type = 'video/mp4';
+                video.appendChild(source);
+                mediaEl.appendChild(video);
+            }
+
+            document.getElementById('pubPrev').disabled = currentPubIndex === 0;
+            document.getElementById('pubNext').disabled = currentPubIndex === items.length - 1;
+            document.getElementById('pubCounter').textContent =
+                items.length > 1 ? `${currentPubIndex + 1} / ${items.length}` : '';
+
+            // Masquer les flèches s'il n'y a qu'un seul média
+            document.querySelector('.pub-lightbox-nav').style.display =
+                items.length > 1 ? 'flex' : 'none';
+
+            document.getElementById('pubLightbox').classList.add('active');
+        }
+
+        function pubNav(direction) {
+            const items = pubGalleries[currentGallery];
+            currentPubIndex = Math.max(0, Math.min(items.length - 1, currentPubIndex + direction));
+            openPubLightbox();
+        }
+
+        function closePubLightbox() {
+            const mediaEl = document.getElementById('pubLightboxMedia');
+            const video = mediaEl.querySelector('video');
+            if (video) { video.pause(); video.src = ''; }
+            document.getElementById('pubLightbox').classList.remove('active');
+        }
+
+        document.getElementById('pubLightbox').addEventListener('click', function(e) {
+            if (e.target === this) closePubLightbox();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { closeLightbox(); closePubLightbox(); }
+            if (document.getElementById('pubLightbox').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') pubNav(-1);
+                if (e.key === 'ArrowRight') pubNav(1);
+            }
+        });
+    </script>
 </body>
 </html>
